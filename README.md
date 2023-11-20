@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://github.com/Terpz710/HubPE"><img src="https://github.com/Terpz710/HubPE/blob/main/icon.png"></img></a><br>
-    <b>SimpleHub plugin for Pocketmine-MP</b>
+    <b>HubPE plugin for Pocketmine-MP</b>
 
 # Description
 A simple hub plugin that allows a user to do /hub, /spawn or /lobby to get teleported back to the hub or spawn location. If you encounter any errors please DM me via discord.
