@@ -10,6 +10,7 @@ use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\utils\Config;
+use pocketmine\world\WorldManager;
 use pocketmine\world\Position;
 
 use Terpz710\HubPE\Main;
