@@ -1,0 +1,16 @@
+name: HubPE
+main: Terpz710\HubPE\Main
+version: 1.0.0
+api: 5.0.0
+author: Terpz710
+description: Simple hubs plugin for Pocketmine-MP
+permissions:
+  hubpe.sethub:
+    description: Allows players to use the /sethub command
+    default: op
+  hubpe.deletehub:
+    description: Allows players to use the /deletehub command
+    default: op
+  hubpe.hub:
+    description: Allows players to use the /hub command
+    default: true
