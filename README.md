@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://github.com/Terpz710/SimpleHub"><img src="https://github.com/Terpz710/SimpleHub/blob/main/icon.png"></img></a><br>
+    <a href="https://github.com/Terpz710/HubPE"><img src="https://github.com/Terpz710/HubPE/blob/main/icon.png"></img></a><br>
     <b>SimpleHub plugin for Pocketmine-MP</b>
 
 # Description
