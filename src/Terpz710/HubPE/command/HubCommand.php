@@ -49,7 +49,7 @@ class HubCommand extends Command implements PluginOwned {
                     $y = $hubData["y"];
                     $z = $hubData["z"];
 
-                    $world = $this->plugin->getServer()->getWorldManager()->getWorldByName($worldName);
+                    $world = $this->plugin->getWorldManager()->getWorldByName($worldName);
                     if ($world === null) {
                         $sender->sendMessage("§l§cHub world not found. Check if the world folder is indeed in the right directory");
                         return false;
