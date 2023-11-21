@@ -10,7 +10,6 @@ use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\utils\Config;
-use pocketmine\world\WorldManager;
 use pocketmine\world\Position;
 
 use Terpz710\HubPE\Main;
@@ -50,17 +49,24 @@ class HubCommand extends Command implements PluginOwned {
                     $y = $hubData["y"];
                     $z = $hubData["z"];
 
-                    $world = $this->plugin->getWorldManager()->getWorldByName($worldName);
+                    $worldManager = $this->plugin->getWorldManager();
+
+                    $world = $worldManager->getWorldByName($worldName);
                     if ($world === null) {
-                        $sender->sendMessage("§l§cHub world not found. Check if the world folder is indeed in the right directory");
-                        return false;
+                        $worldManager->loadWorld($worldName);
+                        $world = $worldManager->getWorldByName($worldName);
+
+                        if ($world === null) {
+                            $sender->sendMessage("§l§cFailed to load the hub world. Check if the world folder is in the right directory");
+                            return false;
+                        }
                     }
 
                     $position = new Position($x, $y, $z, $world);
                     $sender->teleport($position);
                     $sender->sendMessage("§l§aTeleported to the hub");
                 } else {
-                    $sender->sendMessage("§c§lHub location data is invalid or not set. Use /sethub to set the hub or make sure its set up correctly");
+                    $sender->sendMessage("§c§lHub location data is invalid or not set. Use /sethub to set the hub or make sure it's set up correctly");
                 }
             } else {
                 $sender->sendMessage("§c§lYou don't have permission to use this command");
