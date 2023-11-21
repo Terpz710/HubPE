@@ -11,8 +11,8 @@ use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\utils\Config;
 use pocketmine\world\Position;
-
 use Terpz710\HubPE\Main;
+use pocketmine\world\WorldManager;
 
 class HubCommand extends Command implements PluginOwned {
 
@@ -22,7 +22,10 @@ class HubCommand extends Command implements PluginOwned {
     /** @var Plugin */
     private $plugin;
 
-    public function __construct(Config $config, Main $plugin) {
+    /** @var WorldManager */
+    private $worldManager;
+
+    public function __construct(Config $config, Main $plugin, WorldManager $worldManager) {
         parent::__construct(
             "hub",
             "Teleport to hub",
@@ -32,6 +35,7 @@ class HubCommand extends Command implements PluginOwned {
         $this->setPermission("hubpe.hub");
         $this->config = $config;
         $this->plugin = $plugin;
+        $this->worldManager = $worldManager;
     }
 
     public function getOwningPlugin(): Plugin {
@@ -49,12 +53,10 @@ class HubCommand extends Command implements PluginOwned {
                     $y = $hubData["y"];
                     $z = $hubData["z"];
 
-                    $worldManager = $this->plugin->getWorldManager();
-
-                    $world = $worldManager->getWorldByName($worldName);
+                    $world = $this->worldManager->getWorldByName($worldName);
                     if ($world === null) {
-                        $worldManager->loadWorld($worldName);
-                        $world = $worldManager->getWorldByName($worldName);
+                        $this->worldManager->loadWorld($worldName);
+                        $world = $this->worldManager->getWorldByName($worldName);
 
                         if ($world === null) {
                             $sender->sendMessage("§l§cFailed to load the hub world. Check if the world folder is in the right directory");
