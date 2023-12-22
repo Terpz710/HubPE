@@ -14,8 +14,11 @@ use Terpz710\HubPE\command\DeleteHubCommand;
 class Main extends PluginBase {
 
     public function onEnable(): void {
-        $this->saveDefaultConfig();
-        $config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
+        if (!is_dir($this->getDataFolder() . "Hub")) {
+            @mkdir($this->getDataFolder() . "Hub");
+        }
+
+        $config = new Config($this->getDataFolder() . "Hub" . DIRECTORY_SEPARATOR . "hub-data.json", Config::JSON);
 
         $this->getServer()->getCommandMap()->register("hub", new HubCommand($config, $this));
         $this->getServer()->getCommandMap()->register("sethub", new SetHubCommand($config, $this));
