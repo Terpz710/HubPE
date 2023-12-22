@@ -6,9 +6,9 @@ namespace Terpz710\HubPE\command;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\plugin\PluginOwned;
 use pocketmine\player\Player;
-use pocketmine\plugin\PluginBase;
+use pocketmine\plugin\Plugin;
+use pocketmine\plugin\PluginOwned;
 use pocketmine\utils\Config;
 
 use Terpz710\HubPE\Main as Plugin;
