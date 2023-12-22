@@ -20,7 +20,7 @@ class Main extends PluginBase {
         }
 
         $config = new Config($this->getDataFolder() . "Hub" . DIRECTORY_SEPARATOR . "hub-data.json", Config::JSON);
-        $worldManager = $this->getWorldManager();
+        $worldManager = $this->getServer()->getWorldManager();
 
         $this->getServer()->getCommandMap()->register("hub", new HubCommand($config, $this, $worldManager));
         $this->getServer()->getCommandMap()->register("sethub", new SetHubCommand($config, $this, $worldManager));
