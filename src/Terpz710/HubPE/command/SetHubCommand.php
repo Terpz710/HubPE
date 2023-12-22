@@ -6,9 +6,9 @@ namespace Terpz710\HubPE\command;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\plugin\PluginOwned;
 use pocketmine\player\Player;
-use pocketmine\plugin\PluginBase;
+use pocketmine\plugin\Plugin;
+use pocketmine\plugin\PluginOwned;
 use pocketmine\utils\Config;
 use pocketmine\math\Vector3;
 
@@ -39,12 +39,14 @@ class SetHubCommand extends Command implements PluginOwned {
                 $position = $sender->getPosition();
                 $world = $position->getWorld()->getFolderName();
 
-                $this->config->set("hub", [
+                $hubData = [
                     "x" => $position->getX(),
                     "y" => $position->getY(),
                     "z" => $position->getZ(),
                     "world" => $world,
-                ]);
+                ];
+
+                $this->config->set("hub", $hubData);
                 $this->config->save();
                 
                 $sender->sendMessage("§l§aHub location set");
