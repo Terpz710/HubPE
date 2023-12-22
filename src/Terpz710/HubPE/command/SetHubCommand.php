@@ -12,7 +12,7 @@ use pocketmine\plugin\PluginOwned;
 use pocketmine\utils\Config;
 use pocketmine\math\Vector3;
 
-use Terpz710\HubPE\Main as Plugin;
+use Terpz710\HubPE\Main;
 
 class SetHubCommand extends Command implements PluginOwned {
 
