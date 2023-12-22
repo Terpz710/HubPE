@@ -11,7 +11,7 @@ use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\utils\Config;
 
-use Terpz710\HubPE\Main as Plugin;
+use Terpz710\HubPE\Main;
 
 class DeleteHubCommand extends Command implements PluginOwned {
 
